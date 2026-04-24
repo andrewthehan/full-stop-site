@@ -58,15 +58,20 @@
       font-size: 10px;
       letter-spacing: 1.4px;
       text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    .header-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding-top: 16px;
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
 
     .section-meta {
@@ -375,10 +380,13 @@
 
   <header>
     <div class="section-bar">
-      <span class="section-label"><img src="icon.png" alt="Full Stop logo" class="header-icon"> Full Stop</span>
+      <span class="section-label">&sect; Full Stop</span>
       <span class="section-meta">iOS &amp; Android</span>
     </div>
-    <h1>Full Stop.</h1>
+    <div class="logo-row">
+      <img src="icon.png" alt="Full Stop logo" class="app-icon">
+      <h1>Full Stop.</h1>
+    </div>
   </header>
 
   <div class="hero">
