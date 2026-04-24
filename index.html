@@ -239,37 +239,62 @@
       margin-bottom: 24px;
     }
 
-    .scale-table {
-      width: 100%;
-      border-collapse: collapse;
+    .scale-list {
+      display: flex;
+      flex-direction: column;
     }
 
-    .scale-table td {
-      padding: 8px 0;
+    .scale-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 0;
       border-bottom: 0.5px solid var(--hair);
-      vertical-align: top;
     }
 
-    .scale-table .scale-num {
+    .scale-bar {
+      width: 4px;
+      height: 28px;
+      flex-shrink: 0;
+      border-radius: 1px;
+    }
+
+    .scale-num {
       font-family: var(--mono);
       font-size: 11px;
       letter-spacing: 1px;
-      width: 36px;
       color: var(--muted);
+      flex-shrink: 0;
+      width: 20px;
     }
 
-    .scale-table .scale-label {
+    .scale-label {
       font-family: var(--serif);
       font-size: 15px;
       font-weight: 600;
+      flex-shrink: 0;
     }
 
-    .scale-table .scale-desc {
+    .scale-desc {
       font-family: var(--serif);
       font-style: italic;
       font-size: 13px;
       color: var(--muted);
-      padding-left: 16px;
+    }
+
+    .scale-row.sweet .scale-label {
+      font-weight: 600;
+    }
+
+    @media (max-width: 520px) {
+      .scale-row {
+        flex-wrap: wrap;
+      }
+      .scale-desc {
+        width: 100%;
+        padding-left: 34px;
+        margin-top: -2px;
+      }
     }
 
     .sweet-spot {
@@ -431,18 +456,18 @@
     <div class="section-bar">
       <span class="section-label">&sect; 03 &mdash; The scale</span>
     </div>
-    <table class="scale-table">
-      <tr><td class="scale-num">01</td><td class="scale-label">Starving</td><td class="scale-desc">Dizzy, can't concentrate</td></tr>
-      <tr><td class="scale-num">02</td><td class="scale-label">Very hungry</td><td class="scale-desc">Irritable, low energy</td></tr>
-      <tr><td class="scale-num">03</td><td class="scale-label">Hungry</td><td class="scale-desc">Ready to eat, stomach growling</td></tr>
-      <tr><td class="scale-num">04</td><td class="scale-label">Slightly hungry</td><td class="scale-desc">Could eat soon</td></tr>
-      <tr><td class="scale-num">05</td><td class="scale-label">Neutral</td><td class="scale-desc">Comfortable, neither hungry nor full</td></tr>
-      <tr><td class="scale-num">06</td><td class="scale-label">Satisfied</td><td class="scale-desc">Pleasantly content</td></tr>
-      <tr><td class="scale-num">07</td><td class="scale-label">Full</td><td class="scale-desc">Don't need any more</td></tr>
-      <tr><td class="scale-num">08</td><td class="scale-label">Very full</td><td class="scale-desc">Slightly uncomfortable</td></tr>
-      <tr><td class="scale-num">09</td><td class="scale-label">Uncomfortably full</td><td class="scale-desc">Regret setting in</td></tr>
-      <tr><td class="scale-num">10</td><td class="scale-label">Painfully stuffed</td><td class="scale-desc">Nauseous, need to lie down</td></tr>
-    </table>
+    <div class="scale-list">
+      <div class="scale-row"><span class="scale-bar" style="background:#B8783A"></span><span class="scale-num">01</span><span class="scale-label">Starving</span><span class="scale-desc">Dizzy, can't concentrate</span></div>
+      <div class="scale-row"><span class="scale-bar" style="background:#B8893A"></span><span class="scale-num">02</span><span class="scale-label">Very hungry</span><span class="scale-desc">Irritable, low energy</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#AE9840"></span><span class="scale-num">03</span><span class="scale-label">Hungry</span><span class="scale-desc">Ready to eat, stomach growling</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#8DAA52"></span><span class="scale-num">04</span><span class="scale-label">Slightly hungry</span><span class="scale-desc">Could eat soon</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#6FAE6B"></span><span class="scale-num">05</span><span class="scale-label">Neutral</span><span class="scale-desc">Comfortable, neither hungry nor full</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#4DA48B"></span><span class="scale-num">06</span><span class="scale-label">Satisfied</span><span class="scale-desc">Pleasantly content</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#4A8EA6"></span><span class="scale-num">07</span><span class="scale-label">Full</span><span class="scale-desc">Don't need any more</span></div>
+      <div class="scale-row"><span class="scale-bar" style="background:#4A70A8"></span><span class="scale-num">08</span><span class="scale-label">Very full</span><span class="scale-desc">Slightly uncomfortable</span></div>
+      <div class="scale-row"><span class="scale-bar" style="background:#5E4FA0"></span><span class="scale-num">09</span><span class="scale-label">Uncomfortably full</span><span class="scale-desc">Regret setting in</span></div>
+      <div class="scale-row"><span class="scale-bar" style="background:#5A3890"></span><span class="scale-num">10</span><span class="scale-label">Painfully stuffed</span><span class="scale-desc">Nauseous, need to lie down</span></div>
+    </div>
     <p class="sweet-spot">&#9612; = sweet spot &middot; eat at 3&ndash;4, stop at 6&ndash;7</p>
   </section>
 
