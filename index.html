@@ -282,8 +282,10 @@
       color: var(--muted);
     }
 
-    .scale-row.sweet .scale-label {
-      font-weight: 600;
+    .scale-row.sweet {
+      border-left: 3px solid var(--ink);
+      padding-left: 8px;
+      margin-left: -11px;
     }
 
     @media (max-width: 520px) {
@@ -381,9 +383,30 @@
 
   <div class="divider"><div class="divider-line"></div></div>
 
+  <section class="scale-section">
+    <div class="section-bar">
+      <span class="section-label">&sect; 01 &mdash; The scale</span>
+    </div>
+    <div class="scale-list">
+      <div class="scale-row"><span class="scale-bar" style="background:#B8783A"></span><span class="scale-num">01</span><span class="scale-label">Starving</span><span class="scale-desc">Dizzy, can't concentrate</span></div>
+      <div class="scale-row"><span class="scale-bar" style="background:#B8893A"></span><span class="scale-num">02</span><span class="scale-label">Very hungry</span><span class="scale-desc">Irritable, low energy</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#AE9840"></span><span class="scale-num">03</span><span class="scale-label">Hungry</span><span class="scale-desc">Ready to eat, stomach growling</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#8DAA52"></span><span class="scale-num">04</span><span class="scale-label">Slightly hungry</span><span class="scale-desc">Could eat soon</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#6FAE6B"></span><span class="scale-num">05</span><span class="scale-label">Neutral</span><span class="scale-desc">Comfortable, neither hungry nor full</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#4DA48B"></span><span class="scale-num">06</span><span class="scale-label">Satisfied</span><span class="scale-desc">Pleasantly content</span></div>
+      <div class="scale-row sweet"><span class="scale-bar" style="background:#4A8EA6"></span><span class="scale-num">07</span><span class="scale-label">Full</span><span class="scale-desc">Don't need any more</span></div>
+      <div class="scale-row"><span class="scale-bar" style="background:#4A70A8"></span><span class="scale-num">08</span><span class="scale-label">Very full</span><span class="scale-desc">Slightly uncomfortable</span></div>
+      <div class="scale-row"><span class="scale-bar" style="background:#5E4FA0"></span><span class="scale-num">09</span><span class="scale-label">Uncomfortably full</span><span class="scale-desc">Regret setting in</span></div>
+      <div class="scale-row"><span class="scale-bar" style="background:#5A3890"></span><span class="scale-num">10</span><span class="scale-label">Painfully stuffed</span><span class="scale-desc">Nauseous, need to lie down</span></div>
+    </div>
+    <p class="sweet-spot">&#9612; = sweet spot &middot; start eating at 3&ndash;4, stop at 6&ndash;7</p>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
   <section class="features">
     <div class="section-bar">
-      <span class="section-label">&sect; 01 &mdash; Features</span>
+      <span class="section-label">&sect; 02 &mdash; Features</span>
     </div>
     <div class="feature-grid">
       <div class="feature">
@@ -423,7 +446,7 @@
 
   <section class="how">
     <div class="section-bar">
-      <span class="section-label">&sect; 02 &mdash; How it works</span>
+      <span class="section-label">&sect; 03 &mdash; How it works</span>
     </div>
     <div class="steps">
       <div class="step">
@@ -448,27 +471,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <div class="divider"><div class="divider-line"></div></div>
-
-  <section class="scale-section">
-    <div class="section-bar">
-      <span class="section-label">&sect; 03 &mdash; The scale</span>
-    </div>
-    <div class="scale-list">
-      <div class="scale-row"><span class="scale-bar" style="background:#B8783A"></span><span class="scale-num">01</span><span class="scale-label">Starving</span><span class="scale-desc">Dizzy, can't concentrate</span></div>
-      <div class="scale-row"><span class="scale-bar" style="background:#B8893A"></span><span class="scale-num">02</span><span class="scale-label">Very hungry</span><span class="scale-desc">Irritable, low energy</span></div>
-      <div class="scale-row sweet"><span class="scale-bar" style="background:#AE9840"></span><span class="scale-num">03</span><span class="scale-label">Hungry</span><span class="scale-desc">Ready to eat, stomach growling</span></div>
-      <div class="scale-row sweet"><span class="scale-bar" style="background:#8DAA52"></span><span class="scale-num">04</span><span class="scale-label">Slightly hungry</span><span class="scale-desc">Could eat soon</span></div>
-      <div class="scale-row sweet"><span class="scale-bar" style="background:#6FAE6B"></span><span class="scale-num">05</span><span class="scale-label">Neutral</span><span class="scale-desc">Comfortable, neither hungry nor full</span></div>
-      <div class="scale-row sweet"><span class="scale-bar" style="background:#4DA48B"></span><span class="scale-num">06</span><span class="scale-label">Satisfied</span><span class="scale-desc">Pleasantly content</span></div>
-      <div class="scale-row sweet"><span class="scale-bar" style="background:#4A8EA6"></span><span class="scale-num">07</span><span class="scale-label">Full</span><span class="scale-desc">Don't need any more</span></div>
-      <div class="scale-row"><span class="scale-bar" style="background:#4A70A8"></span><span class="scale-num">08</span><span class="scale-label">Very full</span><span class="scale-desc">Slightly uncomfortable</span></div>
-      <div class="scale-row"><span class="scale-bar" style="background:#5E4FA0"></span><span class="scale-num">09</span><span class="scale-label">Uncomfortably full</span><span class="scale-desc">Regret setting in</span></div>
-      <div class="scale-row"><span class="scale-bar" style="background:#5A3890"></span><span class="scale-num">10</span><span class="scale-label">Painfully stuffed</span><span class="scale-desc">Nauseous, need to lie down</span></div>
-    </div>
-    <p class="sweet-spot">&#9612; = sweet spot &middot; eat at 3&ndash;4, stop at 6&ndash;7</p>
   </section>
 
   <div class="divider"><div class="divider-line"></div></div>
