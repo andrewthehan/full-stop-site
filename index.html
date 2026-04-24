@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Stop. — Know when to start. Know when to stop.</title>
+  <meta name="description" content="A mindful hunger and fullness tracker. Log how you feel, see patterns, eat with intention.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --ink: #1B1915;
+      --bg: #EEE8DC;
+      --paper: #F7F2E6;
+      --muted: #837C6F;
+      --hair: rgba(27, 25, 21, 0.22);
+      --red: #C1362B;
+      --serif: 'Fraunces', Georgia, serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      font-family: var(--serif);
+      background-color: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top rule */
+    .top-rule {
+      height: 1px;
+      background: var(--ink);
+    }
+
+    /* Header */
+    header {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 12px 24px 0;
+    }
+
+    .section-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0 8px;
+      border-bottom: 0.5px solid var(--hair);
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .section-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 10vw, 72px);
+      font-weight: 400;
+      line-height: 1.05;
+      padding-top: 16px;
+      letter-spacing: -1px;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 48px;
+    }
+
+    .tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 14px 28px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .cta:hover { opacity: 0.85; }
+
+    .cta-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--ink);
+    }
+
+    /* Divider */
+    .divider {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .divider-line {
+      height: 1px;
+      background: var(--ink);
+    }
+
+    /* Features */
+    .features {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .features .section-bar {
+      margin-bottom: 32px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 48px;
+    }
+
+    @media (max-width: 520px) {
+      .feature-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    .feature h3 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .feature p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .feature-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* How it works */
+    .how {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .how .section-bar {
+      margin-bottom: 32px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      flex-shrink: 0;
+      padding-top: 4px;
+    }
+
+    .step h3 {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .step p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Scale preview */
+    .scale-section {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .scale-section .section-bar {
+      margin-bottom: 24px;
+    }
+
+    .scale-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .scale-table td {
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--hair);
+      vertical-align: top;
+    }
+
+    .scale-table .scale-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 1px;
+      width: 36px;
+      color: var(--muted);
+    }
+
+    .scale-table .scale-label {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .scale-table .scale-desc {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 16px;
+    }
+
+    .sweet-spot {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    /* Privacy note */
+    .privacy-note {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .privacy-note .section-bar {
+      margin-bottom: 24px;
+    }
+
+    .privacy-note p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .privacy-note a {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    .footer-rule {
+      height: 1px;
+      background: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    footer p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-rule"></div>
+
+  <header>
+    <div class="section-bar">
+      <span class="section-label">&sect; Full Stop</span>
+      <span class="section-meta">iOS &amp; Android</span>
+    </div>
+    <h1>Full Stop.</h1>
+  </header>
+
+  <div class="hero">
+    <p class="tagline">
+      Know when to start. Know when to stop.<br>
+      A mindful hunger and fullness tracker that helps you eat with intention.
+    </p>
+    <div class="cta-row">
+      <a href="#" class="cta cta-primary">App Store</a>
+      <a href="#" class="cta cta-secondary">Google Play</a>
+    </div>
+  </div>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <section class="features">
+    <div class="section-bar">
+      <span class="section-label">&sect; 01 &mdash; Features</span>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="feature-num">01</div>
+        <h3>Check in</h3>
+        <p>Rate your hunger or fullness on a 1&ndash;10 scale. Add a note about what you ate and how your body feels.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">02</div>
+        <h3>See your history</h3>
+        <p>Browse past entries in a logbook with a calendar view. Tap any day to expand its readings.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">03</div>
+        <h3>Spot patterns</h3>
+        <p>Trend charts, time-of-day breakdowns, and insights help you understand your eating habits over time.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">04</div>
+        <h3>Gentle reminders</h3>
+        <p>Optional notifications before meals, after eating, and for an evening reflection. Set your own times.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">05</div>
+        <h3>Themes</h3>
+        <p>Paper, Dusk, Carbon, or Field Notes. Pick the palette that feels right.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">06</div>
+        <h3>Private by design</h3>
+        <p>All data stays on your device. No accounts, no servers, no tracking. Your readings are yours alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <section class="how">
+    <div class="section-bar">
+      <span class="section-label">&sect; 02 &mdash; How it works</span>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div>
+          <h3>Pause and check in</h3>
+          <p>Before or after a meal, open Full Stop and rate how hungry or full you feel on the 1&ndash;10 scale.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div>
+          <h3>Find the sweet spot</h3>
+          <p>The goal is simple: start eating around 3&ndash;4, stop around 6&ndash;7. The bracket on the scale shows your target range.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div>
+          <h3>Build awareness</h3>
+          <p>Over time, you learn your body's signals. The trends and insights are there when you want them, never in the way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <section class="scale-section">
+    <div class="section-bar">
+      <span class="section-label">&sect; 03 &mdash; The scale</span>
+    </div>
+    <table class="scale-table">
+      <tr><td class="scale-num">01</td><td class="scale-label">Starving</td><td class="scale-desc">Dizzy, can't concentrate</td></tr>
+      <tr><td class="scale-num">02</td><td class="scale-label">Very hungry</td><td class="scale-desc">Irritable, low energy</td></tr>
+      <tr><td class="scale-num">03</td><td class="scale-label">Hungry</td><td class="scale-desc">Ready to eat, stomach growling</td></tr>
+      <tr><td class="scale-num">04</td><td class="scale-label">Slightly hungry</td><td class="scale-desc">Could eat soon</td></tr>
+      <tr><td class="scale-num">05</td><td class="scale-label">Neutral</td><td class="scale-desc">Comfortable, neither hungry nor full</td></tr>
+      <tr><td class="scale-num">06</td><td class="scale-label">Satisfied</td><td class="scale-desc">Pleasantly content</td></tr>
+      <tr><td class="scale-num">07</td><td class="scale-label">Full</td><td class="scale-desc">Don't need any more</td></tr>
+      <tr><td class="scale-num">08</td><td class="scale-label">Very full</td><td class="scale-desc">Slightly uncomfortable</td></tr>
+      <tr><td class="scale-num">09</td><td class="scale-label">Uncomfortably full</td><td class="scale-desc">Regret setting in</td></tr>
+      <tr><td class="scale-num">10</td><td class="scale-label">Painfully stuffed</td><td class="scale-desc">Nauseous, need to lie down</td></tr>
+    </table>
+    <p class="sweet-spot">&#9612; = sweet spot &middot; eat at 3&ndash;4, stop at 6&ndash;7</p>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <section class="privacy-note">
+    <div class="section-bar">
+      <span class="section-label">&sect; 04 &mdash; Privacy</span>
+    </div>
+    <p>
+      Full Stop stores all data on-device. Nothing is sent to a server.
+      No analytics, no tracking, no accounts. Your readings are yours alone.
+      Read the full <a href="privacy.html">privacy policy</a>.
+    </p>
+  </section>
+
+  <footer>
+    <div class="footer-rule"></div>
+    <p>
+      Full Stop &mdash; a mindful eating companion.<br>
+      Made by <a href="https://github.com/andrewthehan">Andrew Han</a>.<br><br>
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>
