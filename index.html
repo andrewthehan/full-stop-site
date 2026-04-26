@@ -256,7 +256,46 @@
       letter-spacing: 1px;
       color: var(--muted);
       flex-shrink: 0;
+      width: 24px;
       padding-top: 4px;
+    }
+
+    /* Pro feature list — roman numerals like the app's book jacket */
+    .pro-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .pro-item {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .pro-numeral {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      flex-shrink: 0;
+      width: 24px;
+    }
+
+    .pro-item h3 {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .pro-item p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
     }
 
     .step h3 {
@@ -418,7 +457,7 @@
     </div>
     <div class="logo-row">
       <img src="icon.png" alt="Full Stop logo" class="app-icon">
-      <h1>Full Stop.</h1>
+      <h1>Full Stop<span style="color: var(--red)">.</span></h1>
     </div>
   </header>
 
@@ -483,11 +522,21 @@
       </div>
       <div class="feature">
         <div class="feature-num">05</div>
+        <h3>Home screen widgets</h3>
+        <p>Quick-log your hunger and fullness right from your home screen. iOS and Android.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">06</div>
         <h3>Themes</h3>
         <p>Paper, Dusk, Carbon, or Field Notes. Pick the palette that feels right.</p>
       </div>
       <div class="feature">
-        <div class="feature-num">06</div>
+        <div class="feature-num">07</div>
+        <h3>Export your data</h3>
+        <p>Download everything as a CSV. Your data, your way.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">08</div>
         <h3>Private by design</h3>
         <p>All data stays on your device. No accounts, no servers, no tracking. Your readings are yours alone.</p>
       </div>
@@ -519,7 +568,7 @@
         <span class="step-num">03</span>
         <div>
           <h3>Build awareness</h3>
-          <p>Over time, you learn your body&rsquo;s signals. Weekly patterns, consistency scores, and insights are there when you want them, never in the way.</p>
+          <p>Over time, you learn your body&rsquo;s signals. Weekly patterns, sweet-spot tracking, and time-of-day insights are there when you want them, never in the way.</p>
         </div>
       </div>
     </div>
@@ -527,9 +576,54 @@
 
   <div class="divider"><div class="divider-line"></div></div>
 
+  <section class="how">
+    <div class="section-bar">
+      <span class="section-label">&sect; 04 &mdash; Pro</span>
+      <span class="section-meta">$4.99 &mdash; One-time</span>
+    </div>
+    <p class="tagline" style="margin-top: 0; font-size: 17px;">
+      The free version does everything you need. Pro unlocks the full picture.
+    </p>
+    <div class="pro-list">
+      <div class="pro-item">
+        <span class="pro-numeral">i.</span>
+        <div>
+          <h3>Full history</h3>
+          <p>Every day, not just the last seven.</p>
+        </div>
+      </div>
+      <div class="pro-item">
+        <span class="pro-numeral">ii.</span>
+        <div>
+          <h3>Pattern insights</h3>
+          <p>Time of day, weekly trends, sweet-spot tracking.</p>
+        </div>
+      </div>
+      <div class="pro-item">
+        <span class="pro-numeral">iii.</span>
+        <div>
+          <h3>Export CSV</h3>
+          <p>Your data, your way.</p>
+        </div>
+      </div>
+      <div class="pro-item">
+        <span class="pro-numeral">iv.</span>
+        <div>
+          <h3>Custom themes</h3>
+          <p>Dusk, Carbon, Field Notes.</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-family: var(--mono); font-size: 10px; letter-spacing: 1px; color: var(--muted); margin-top: 24px; text-transform: uppercase;">
+      No subscription. No account. One purchase, forever.
+    </p>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
   <section class="privacy-note">
     <div class="section-bar">
-      <span class="section-label">&sect; 04 &mdash; Privacy</span>
+      <span class="section-label">&sect; 05 &mdash; Privacy</span>
     </div>
     <p>
       Full Stop stores all data on-device. Nothing is sent to a server.
