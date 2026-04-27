@@ -178,7 +178,7 @@
       border-radius: 28px;
       overflow: hidden;
       background: #EEE8DC;
-      padding: 24px 0 16px;
+      padding: 24px 4px 16px;
       transition: border-color 0.3s;
     }
 
@@ -192,12 +192,14 @@
       height: 10px;
       background: rgba(0, 0, 0, 0.08);
       border-radius: 20px;
+      z-index: 1;
     }
 
     .phone img {
       display: block;
       width: 100%;
       height: auto;
+      border-radius: 6px;
     }
 
     /* Hero phones */
@@ -286,28 +288,37 @@
       margin-bottom: 8px;
     }
 
-    /* Story steps — alternating text + phone */
-    .story-step {
+    /* Scrolly phone section */
+    .scrolly {
       display: flex;
-      gap: 48px;
-      align-items: center;
-      margin-bottom: 64px;
+      gap: 64px;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
-    .story-step:last-child { margin-bottom: 0; }
-
-    .story-step.reverse { flex-direction: row-reverse; }
-
-    .story-step .text {
+    .scrolly-steps {
       flex: 1;
+      max-width: 420px;
     }
 
-    .story-step .phone {
-      width: 200px;
-      flex-shrink: 0;
+    .scrolly-step {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 32px 0;
+      opacity: 0.25;
+      transition: opacity 0.4s;
     }
 
-    .story-step .step-num {
+    .scrolly-step:last-child {
+      min-height: 60vh;
+    }
+
+    .scrolly-step.active { opacity: 1; }
+
+    .scrolly-step .step-num {
       font-family: var(--mono);
       font-size: 10px;
       letter-spacing: 1.4px;
@@ -316,14 +327,14 @@
       margin-bottom: 12px;
     }
 
-    .story-step h3 {
+    .scrolly-step h3 {
       font-family: var(--serif);
       font-size: 24px;
       font-weight: 400;
       margin-bottom: 8px;
     }
 
-    .story-step p {
+    .scrolly-step p {
       font-family: var(--serif);
       font-style: italic;
       font-size: 15px;
@@ -331,25 +342,123 @@
       line-height: 1.6;
     }
 
-    .story-step .widget-img {
-      width: 240px;
+    .scrolly-phone {
+      width: 280px;
+      flex-shrink: 0;
+      align-self: flex-start;
+      position: sticky;
+      top: calc(50vh - 260px);
+    }
+
+    .scrolly-phone .phone {
+      position: relative;
+    }
+
+    .scrolly-phone .phone img {
+      position: absolute;
+      top: 24px;
+      left: 4px;
+      width: calc(100% - 8px);
+      height: auto;
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+
+    .scrolly-phone .phone img:first-child {
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 100%;
+    }
+
+    .scrolly-phone .phone img.active {
+      opacity: 1;
+    }
+
+    /* Widget step — standalone below scrolly */
+    .widget-step {
+      display: flex;
+      gap: 64px;
+      align-items: center;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 0;
+    }
+
+    .widget-step .text {
+      flex: 1;
+      max-width: 420px;
+    }
+
+    .widget-step .step-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .widget-step h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .widget-step p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .widget-step .widget-img {
+      width: 220px;
       flex-shrink: 0;
     }
 
-    .story-step .widget-img img {
+    .widget-step .widget-img img {
       display: block;
       width: 100%;
       height: auto;
     }
 
-    @media (max-width: 600px) {
-      .story-step, .story-step.reverse {
+    @media (max-width: 700px) {
+      .scrolly {
         flex-direction: column;
-        gap: 32px;
-        text-align: center;
+        align-items: center;
+        gap: 0;
       }
-      .story-step .phone { width: 180px; }
-      .story-step .widget-img { width: 220px; }
+      .scrolly-phone {
+        position: relative;
+        top: auto;
+        width: 180px;
+        margin-bottom: 16px;
+      }
+      .scrolly-phone .phone img {
+        position: relative;
+        display: none;
+      }
+      .scrolly-phone .phone img.active {
+        display: block;
+      }
+      .scrolly-steps { max-width: 100%; }
+      .scrolly-step {
+        min-height: auto;
+        text-align: center;
+        padding: 24px 0;
+      }
+      .scrolly-step:last-child { min-height: auto; }
+      .widget-step {
+        flex-direction: column;
+        text-align: center;
+        gap: 32px;
+      }
+      .widget-step .text { max-width: 100%; }
+      .widget-step .widget-img { width: 200px; }
     }
 
     /* Scale preview */
@@ -525,56 +634,55 @@
 
   <div class="divider"><div class="divider-line"></div></div>
 
-  <section class="section">
+  <section class="section" style="padding-bottom: 0;">
     <div class="section-bar">
       <span class="section-label">&sect; 01 &mdash; How it works</span>
     </div>
+  </section>
 
-    <div class="story-step">
-      <div class="text">
+  <div class="scrolly">
+    <div class="scrolly-steps">
+      <div class="scrolly-step active" data-screen="0">
         <div class="step-num">Step 01</div>
         <h3>Pause and check in<span style="color: var(--red)">.</span></h3>
         <p>Before or after a meal, slide the ruler to match how hungry or full you feel. The big label tells you exactly where you are.</p>
       </div>
-      <div class="phone"><img src="screenshots/01-log.png" alt="Checking in" loading="lazy"></div>
-    </div>
-
-    <div class="story-step reverse">
-      <div class="text">
+      <div class="scrolly-step" data-screen="1">
         <div class="step-num">Step 02</div>
         <h3>See where you&rsquo;ve been<span style="color: var(--red)">.</span></h3>
         <p>Your logbook keeps every reading. Browse by calendar, expand any day, and spot the rhythm of your week.</p>
       </div>
-      <div class="phone"><img src="screenshots/02-history.png" alt="History logbook" loading="lazy"></div>
-    </div>
-
-    <div class="story-step">
-      <div class="text">
+      <div class="scrolly-step" data-screen="2">
         <div class="step-num">Step 03</div>
         <h3>Spot your week<span style="color: var(--red)">.</span></h3>
         <p>A weekly spread shows every check-in at a glance. See which days you stayed in the sweet spot and which ones drifted.</p>
       </div>
-      <div class="phone"><img src="screenshots/03-trends-week.png" alt="Weekly trends" loading="lazy"></div>
-    </div>
-
-    <div class="story-step reverse">
-      <div class="text">
+      <div class="scrolly-step" data-screen="3">
         <div class="step-num">Step 04</div>
         <h3>Build the bigger picture<span style="color: var(--red)">.</span></h3>
         <p>Time-of-day breakdowns, sweet-spot tracking, and all-time patterns. The longer you log, the more you learn.</p>
       </div>
-      <div class="phone"><img src="screenshots/04-trends-all.png" alt="All-time pattern insights" loading="lazy"></div>
     </div>
-
-    <div class="story-step">
-      <div class="text">
-        <div class="step-num">Step 05</div>
-        <h3>Check in from anywhere<span style="color: var(--red)">.</span></h3>
-        <p>Add a home screen widget to jump straight into a check-in. Tap a number and you&rsquo;re already halfway there.</p>
+    <div class="scrolly-phone">
+      <div class="phone">
+        <img src="screenshots/01-log.png" alt="Checking in" class="active">
+        <img src="screenshots/02-history.png" alt="History logbook">
+        <img src="screenshots/03-trends-week.png" alt="Weekly trends">
+        <img src="screenshots/04-trends-all.png" alt="All-time patterns">
       </div>
-      <div class="widget-img"><img src="screenshots/06-widgets.png" alt="Home screen widgets" loading="lazy"></div>
     </div>
-  </section>
+  </div>
+
+  <div class="widget-step">
+    <div class="text">
+      <div class="step-num">Step 05</div>
+      <h3>Check in from anywhere<span style="color: var(--red)">.</span></h3>
+      <p>Add a home screen widget to jump straight into a check-in. Tap a number and you&rsquo;re already halfway there.</p>
+    </div>
+    <div class="widget-img"><img src="screenshots/06-widgets.png" alt="Home screen widgets" loading="lazy"></div>
+  </div>
+
+  <div style="height: 48px;"></div>
 
   <div class="divider"><div class="divider-line"></div></div>
 
@@ -729,6 +837,37 @@
     document.documentElement.classList.add('dark');
     document.querySelector('.theme-toggle').innerHTML = '&#9788; Light';
   }
+
+  // Scrolly phone: swap active screenshot based on which step is closest to viewport center
+  (function() {
+    const steps = document.querySelectorAll('.scrolly-step');
+    const imgs = document.querySelectorAll('.scrolly-phone .phone img');
+    if (!steps.length || !imgs.length) return;
+
+    function update() {
+      var center = window.innerHeight / 2;
+      var closest = 0;
+      var closestDist = Infinity;
+      steps.forEach(function(step, i) {
+        var rect = step.getBoundingClientRect();
+        var stepCenter = rect.top + rect.height / 2;
+        var dist = Math.abs(stepCenter - center);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = i;
+        }
+      });
+      steps.forEach(function(s, i) {
+        s.classList.toggle('active', i === closest);
+      });
+      imgs.forEach(function(img, i) {
+        img.classList.toggle('active', i === closest);
+      });
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
 </script>
 </body>
 </html>
