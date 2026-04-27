@@ -433,25 +433,21 @@
         gap: 0;
       }
       .scrolly-phone {
-        position: relative;
-        top: auto;
-        width: 180px;
+        order: -1;
+        position: sticky;
+        top: 16px;
+        width: 200px;
         margin-bottom: 16px;
-      }
-      .scrolly-phone .phone img {
-        position: relative;
-        display: none;
-      }
-      .scrolly-phone .phone img.active {
-        display: block;
+        z-index: 10;
+        align-self: center;
       }
       .scrolly-steps { max-width: 100%; }
       .scrolly-step {
-        min-height: auto;
+        min-height: 60vh;
         text-align: center;
         padding: 24px 0;
       }
-      .scrolly-step:last-child { min-height: auto; }
+      .scrolly-step:last-child { min-height: 40vh; }
       .widget-step {
         flex-direction: column;
         text-align: center;
