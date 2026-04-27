@@ -171,6 +171,64 @@
       transition: color 0.3s, border-color 0.3s;
     }
 
+    /* Phone frame */
+    .phone {
+      position: relative;
+      border: 3px solid var(--ink);
+      border-radius: 28px;
+      overflow: hidden;
+      background: #EEE8DC;
+      padding: 24px 0 16px;
+      transition: border-color 0.3s;
+    }
+
+    .phone::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28%;
+      height: 10px;
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+    }
+
+    .phone img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Hero phones */
+    .hero-phones {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 48px 24px 0;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .hero-phones .phone {
+      width: 220px;
+      flex-shrink: 0;
+    }
+
+    .hero-phones .phone:nth-child(2) {
+      transform: translateY(32px);
+    }
+
+    @media (max-width: 720px) {
+      .hero-phones .phone { width: 180px; }
+      .hero-phones { gap: 16px; }
+    }
+
+    @media (max-width: 520px) {
+      .hero-phones .phone:nth-child(3) { display: none; }
+      .hero-phones .phone { width: 200px; }
+    }
+
     /* Divider */
     .divider {
       max-width: 680px;
@@ -183,17 +241,18 @@
       background: var(--ink);
     }
 
-    /* Features */
-    .features {
+    /* Sections */
+    .section {
       max-width: 680px;
       margin: 0 auto;
       padding: 48px 24px;
     }
 
-    .features .section-bar {
+    .section .section-bar {
       margin-bottom: 32px;
     }
 
+    /* Features */
     .feature-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -227,103 +286,73 @@
       margin-bottom: 8px;
     }
 
-    /* How it works */
-    .how {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
-
-    .how .section-bar {
-      margin-bottom: 32px;
-    }
-
-    .steps {
+    /* Story steps — alternating text + phone */
+    .story-step {
       display: flex;
-      flex-direction: column;
-      gap: 24px;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 64px;
     }
 
-    .step {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
+    .story-step:last-child { margin-bottom: 0; }
+
+    .story-step.reverse { flex-direction: row-reverse; }
+
+    .story-step .text {
+      flex: 1;
     }
 
-    .step-num {
+    .story-step .phone {
+      width: 200px;
+      flex-shrink: 0;
+    }
+
+    .story-step .step-num {
       font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 1px;
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
       color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .story-step h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .story-step p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .story-step .widget-img {
+      width: 240px;
       flex-shrink: 0;
-      width: 24px;
-      padding-top: 4px;
     }
 
-    /* Pro feature list — roman numerals like the app's book jacket */
-    .pro-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 24px;
+    .story-step .widget-img img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
-    .pro-item {
-      display: flex;
-      gap: 12px;
-      align-items: baseline;
-    }
-
-    .pro-numeral {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 14px;
-      color: var(--muted);
-      flex-shrink: 0;
-      width: 24px;
-    }
-
-    .pro-item h3 {
-      font-family: var(--serif);
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .pro-item p {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    .step h3 {
-      font-family: var(--serif);
-      font-size: 17px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .step p {
-      font-family: var(--serif);
-      font-style: italic;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.5;
+    @media (max-width: 600px) {
+      .story-step, .story-step.reverse {
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+      }
+      .story-step .phone { width: 180px; }
+      .story-step .widget-img { width: 220px; }
     }
 
     /* Scale preview */
-    .scale-section {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
-
-    .scale-section .section-bar {
-      margin-bottom: 24px;
-    }
-
     .scale-list {
       display: flex;
       flex-direction: column;
@@ -374,14 +403,8 @@
     }
 
     @media (max-width: 520px) {
-      .scale-row {
-        flex-wrap: wrap;
-      }
-      .scale-desc {
-        width: 100%;
-        padding-left: 34px;
-        margin-top: -2px;
-      }
+      .scale-row { flex-wrap: wrap; }
+      .scale-desc { width: 100%; padding-left: 34px; margin-top: -2px; }
     }
 
     .sweet-spot {
@@ -393,17 +416,45 @@
       margin-top: 16px;
     }
 
+    /* Pro feature list */
+    .pro-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .pro-item {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .pro-numeral {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      flex-shrink: 0;
+      width: 24px;
+    }
+
+    .pro-item h3 {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .pro-item p {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     /* Privacy note */
-    .privacy-note {
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
-
-    .privacy-note .section-bar {
-      margin-bottom: 24px;
-    }
-
     .privacy-note p {
       font-family: var(--serif);
       font-style: italic;
@@ -474,9 +525,62 @@
 
   <div class="divider"><div class="divider-line"></div></div>
 
-  <section class="scale-section">
+  <section class="section">
     <div class="section-bar">
-      <span class="section-label">&sect; 01 &mdash; The scale</span>
+      <span class="section-label">&sect; 01 &mdash; How it works</span>
+    </div>
+
+    <div class="story-step">
+      <div class="text">
+        <div class="step-num">Step 01</div>
+        <h3>Pause and check in<span style="color: var(--red)">.</span></h3>
+        <p>Before or after a meal, slide the ruler to match how hungry or full you feel. The big label tells you exactly where you are.</p>
+      </div>
+      <div class="phone"><img src="screenshots/01-log.png" alt="Checking in" loading="lazy"></div>
+    </div>
+
+    <div class="story-step reverse">
+      <div class="text">
+        <div class="step-num">Step 02</div>
+        <h3>See where you&rsquo;ve been<span style="color: var(--red)">.</span></h3>
+        <p>Your logbook keeps every reading. Browse by calendar, expand any day, and spot the rhythm of your week.</p>
+      </div>
+      <div class="phone"><img src="screenshots/02-history.png" alt="History logbook" loading="lazy"></div>
+    </div>
+
+    <div class="story-step">
+      <div class="text">
+        <div class="step-num">Step 03</div>
+        <h3>Spot your week<span style="color: var(--red)">.</span></h3>
+        <p>A weekly spread shows every check-in at a glance. See which days you stayed in the sweet spot and which ones drifted.</p>
+      </div>
+      <div class="phone"><img src="screenshots/03-trends-week.png" alt="Weekly trends" loading="lazy"></div>
+    </div>
+
+    <div class="story-step reverse">
+      <div class="text">
+        <div class="step-num">Step 04</div>
+        <h3>Build the bigger picture<span style="color: var(--red)">.</span></h3>
+        <p>Time-of-day breakdowns, sweet-spot tracking, and all-time patterns. The longer you log, the more you learn.</p>
+      </div>
+      <div class="phone"><img src="screenshots/04-trends-all.png" alt="All-time pattern insights" loading="lazy"></div>
+    </div>
+
+    <div class="story-step">
+      <div class="text">
+        <div class="step-num">Step 05</div>
+        <h3>Check in from anywhere<span style="color: var(--red)">.</span></h3>
+        <p>Add a home screen widget to jump straight into a check-in. Tap a number and you&rsquo;re already halfway there.</p>
+      </div>
+      <div class="widget-img"><img src="screenshots/06-widgets.png" alt="Home screen widgets" loading="lazy"></div>
+    </div>
+  </section>
+
+  <div class="divider"><div class="divider-line"></div></div>
+
+  <section class="section">
+    <div class="section-bar">
+      <span class="section-label">&sect; 02 &mdash; The scale</span>
     </div>
     <div class="scale-list">
       <div class="scale-row"><span class="scale-bar" style="background:#B8783A"></span><span class="scale-num">01</span><span class="scale-label">Starving</span><span class="scale-desc">Dizzy, can't concentrate</span></div>
@@ -495,9 +599,9 @@
 
   <div class="divider"><div class="divider-line"></div></div>
 
-  <section class="features">
+  <section class="section">
     <div class="section-bar">
-      <span class="section-label">&sect; 02 &mdash; Features</span>
+      <span class="section-label">&sect; 03 &mdash; Features</span>
     </div>
     <div class="feature-grid">
       <div class="feature">
@@ -523,7 +627,7 @@
       <div class="feature">
         <div class="feature-num">05</div>
         <h3>Home screen widgets</h3>
-        <p>Quick-log your hunger and fullness right from your home screen. iOS and Android.</p>
+        <p>Tap a number on your home screen to jump straight into a check-in. iOS and Android.</p>
       </div>
       <div class="feature">
         <div class="feature-num">06</div>
@@ -545,38 +649,7 @@
 
   <div class="divider"><div class="divider-line"></div></div>
 
-  <section class="how">
-    <div class="section-bar">
-      <span class="section-label">&sect; 03 &mdash; How it works</span>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <span class="step-num">01</span>
-        <div>
-          <h3>Pause and check in</h3>
-          <p>Before or after a meal, slide the horizontal ruler to match how hungry or full you feel. The big label tells you exactly where you are.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num">02</span>
-        <div>
-          <h3>Find the sweet spot</h3>
-          <p>Start eating around 3&ndash;4, stop around 6&ndash;7. The sweet spot indicator highlights when you&rsquo;re in the zone.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num">03</span>
-        <div>
-          <h3>Build awareness</h3>
-          <p>Over time, you learn your body&rsquo;s signals. Weekly patterns, sweet-spot tracking, and time-of-day insights are there when you want them, never in the way.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="divider"><div class="divider-line"></div></div>
-
-  <section class="how">
+  <section class="section">
     <div class="section-bar">
       <span class="section-label">&sect; 04 &mdash; Pro</span>
       <span class="section-meta">$4.99 &mdash; One-time</span>
@@ -621,7 +694,7 @@
 
   <div class="divider"><div class="divider-line"></div></div>
 
-  <section class="privacy-note">
+  <section class="section privacy-note">
     <div class="section-bar">
       <span class="section-label">&sect; 05 &mdash; Privacy</span>
     </div>
