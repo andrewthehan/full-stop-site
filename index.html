@@ -661,10 +661,10 @@
     </div>
     <div class="scrolly-phone">
       <div class="phone">
-        <img src="screenshots/01-log.png" alt="Checking in" class="active">
-        <img src="screenshots/02-history.png" alt="History logbook">
-        <img src="screenshots/03-trends-week.png" alt="Weekly trends">
-        <img src="screenshots/04-trends-all.png" alt="All-time patterns">
+        <img src="screenshots/01-log.png" data-light-src="screenshots/01-log.png" data-dark-src="screenshots/dark/01-log.png" alt="Checking in" class="active">
+        <img src="screenshots/02-history.png" data-light-src="screenshots/02-history.png" data-dark-src="screenshots/dark/02-history.png" alt="History logbook">
+        <img src="screenshots/03-trends-week.png" data-light-src="screenshots/03-trends-week.png" data-dark-src="screenshots/dark/03-trends-week.png" alt="Weekly trends">
+        <img src="screenshots/04-trends-all.png" data-light-src="screenshots/04-trends-all.png" data-dark-src="screenshots/dark/04-trends-all.png" alt="All-time patterns">
       </div>
     </div>
   </div>
@@ -819,6 +819,12 @@
   </footer>
 
 <script>
+  function swapScreenshots(isDark) {
+    document.querySelectorAll('img[data-light-src]').forEach(function(img) {
+      img.src = isDark ? img.dataset.darkSrc : img.dataset.lightSrc;
+    });
+  }
+
   function toggleTheme() {
     const root = document.documentElement;
     const btn = document.querySelector('.theme-toggle');
@@ -826,12 +832,14 @@
     const isDark = root.classList.contains('dark');
     btn.innerHTML = isDark ? '&#9788; Light' : '&#9790; Dark';
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    swapScreenshots(isDark);
   }
 
   // Restore saved preference
   if (localStorage.getItem('theme') === 'dark') {
     document.documentElement.classList.add('dark');
     document.querySelector('.theme-toggle').innerHTML = '&#9788; Light';
+    swapScreenshots(true);
   }
 
   // Scrolly phone: swap active screenshot based on which step is closest to viewport center
