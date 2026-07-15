@@ -220,8 +220,13 @@
       border-radius: 28px;
       overflow: hidden;
       background: #EEE8DC;
-      padding: 3px 4px 0px;
-      transition: border-color 0.3s;
+      padding: 0;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    :root.dark .phone {
+      border-color: #2a2a2a;
+      background: #1a1a1a;
     }
 
     .phone img {
@@ -394,9 +399,9 @@
 
     .scrolly-phone .phone img {
       position: absolute;
-      top: 24px;
-      left: 4px;
-      width: calc(100% - 8px);
+      top: 0;
+      left: 0;
+      width: 100%;
       height: auto;
       opacity: 0;
       transition: opacity 0.4s;
@@ -405,9 +410,6 @@
 
     .scrolly-phone .phone img:first-child {
       position: relative;
-      top: auto;
-      left: auto;
-      width: 100%;
     }
 
     .scrolly-phone .phone img.active {
@@ -720,27 +722,27 @@
       </div>
       <div class="scrolly-step" data-screen="2">
         <div class="step-num">Step 03</div>
-        <h3>Spot your week<span style="color: var(--red)">.</span></h3>
-        <p>A weekly spread shows every check-in at a glance. See which days you stayed in the sweet spot and which ones drifted.</p>
+        <h3>Reflect on yesterday<span style="color: var(--red)">.</span></h3>
+        <p>The Yesterday tab shows all your previous day&rsquo;s check-ins as a scatter chart, with stats and a share card you can export as an image.</p>
       </div>
       <div class="scrolly-step" data-screen="3">
         <div class="step-num">Step 04</div>
-        <h3>Build the bigger picture<span style="color: var(--red)">.</span></h3>
-        <p>Time-of-day breakdowns, sweet-spot tracking, and all-time patterns. The longer you log, the more you learn.</p>
+        <h3>Spot your week<span style="color: var(--red)">.</span></h3>
+        <p>A weekly spread shows every check-in at a glance. See which days you stayed in the sweet spot and which ones drifted.</p>
       </div>
       <div class="scrolly-step" data-screen="4">
         <div class="step-num">Step 05</div>
-        <h3>Reflect on yesterday<span style="color: var(--red)">.</span></h3>
-        <p>The Yesterday tab shows all your previous day&rsquo;s check-ins as a scatter chart, with stats and a share card you can export as an image.</p>
+        <h3>Build the bigger picture<span style="color: var(--red)">.</span></h3>
+        <p>Time-of-day breakdowns, sweet-spot tracking, and all-time patterns. The longer you log, the more you learn.</p>
       </div>
     </div>
     <div class="scrolly-phone">
       <div class="phone">
         <img src="screenshots/01-log.png" data-light-src="screenshots/01-log.png" data-dark-src="screenshots/dark/01-log.png" alt="Checking in" class="active">
         <img src="screenshots/02-history.png" data-light-src="screenshots/02-history.png" data-dark-src="screenshots/dark/02-history.png" alt="History logbook">
+        <img src="screenshots/05-yesterday.png" data-light-src="screenshots/05-yesterday.png" data-dark-src="screenshots/dark/05-yesterday.png" alt="Yesterday reflection">
         <img src="screenshots/03-trends-week.png" data-light-src="screenshots/03-trends-week.png" data-dark-src="screenshots/dark/03-trends-week.png" alt="Weekly trends">
         <img src="screenshots/04-trends-all.png" data-light-src="screenshots/04-trends-all.png" data-dark-src="screenshots/dark/04-trends-all.png" alt="All-time patterns">
-        <img src="screenshots/05-yesterday.png" data-light-src="screenshots/05-yesterday.png" data-dark-src="screenshots/dark/05-yesterday.png" alt="Yesterday reflection">
       </div>
     </div>
   </div>
