@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Full Stop. — Know when to start. Know when to stop.</title>
   <meta name="description" content="A mindful hunger and fullness tracker. Log how you feel, see patterns, eat with intention.">
+  <link rel="canonical" href="https://fullstop.ahh.fyi/">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://fullstop.ahh.fyi/">
@@ -24,6 +25,36 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Full Stop.",
+    "url": "https://fullstop.ahh.fyi/",
+    "image": "https://fullstop.ahh.fyi/og-image.png",
+    "description": "A mindful hunger and fullness tracker. Log how you feel, see patterns, eat with intention.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "iOS, Android",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Full Stop",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Full Stop Pro",
+        "price": "7.99",
+        "priceCurrency": "USD"
+      }
+    ],
+    "sameAs": [
+      "https://apps.apple.com/us/app/full-stop/id6763824876",
+      "https://play.google.com/store/apps/details?id=com.andrewhan.fullstop"
+    ]
+  }
+  </script>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -81,8 +112,10 @@
     }
 
     .section-label {
+      display: block;
       font-family: var(--mono);
       font-size: 10px;
+      font-weight: 400;
       letter-spacing: 1.4px;
       text-transform: uppercase;
     }
@@ -718,7 +751,7 @@
 
   <section class="section" style="padding-bottom: 0;">
     <div class="section-bar">
-      <span class="section-label">&sect; 01 &mdash; How it works</span>
+      <h2 class="section-label">&sect; 01 &mdash; How it works</h2>
     </div>
   </section>
 
@@ -776,7 +809,7 @@
 
   <section class="section">
     <div class="section-bar">
-      <span class="section-label">&sect; 02 &mdash; The scale</span>
+      <h2 class="section-label">&sect; 02 &mdash; The scale</h2>
     </div>
     <div class="scale-list">
       <div class="scale-row"><span class="scale-bar" style="background:#B8783A"></span><span class="scale-num">01</span><span class="scale-label">Starving</span><span class="scale-desc">Dizzy, can't concentrate</span></div>
@@ -797,7 +830,7 @@
 
   <section class="section">
     <div class="section-bar">
-      <span class="section-label">&sect; 03 &mdash; Features</span>
+      <h2 class="section-label">&sect; 03 &mdash; Features</h2>
     </div>
     <div class="feature-grid">
       <div class="feature">
@@ -852,7 +885,7 @@
 
   <section class="section">
     <div class="section-bar">
-      <span class="section-label">&sect; 04 &mdash; Pro</span>
+      <h2 class="section-label">&sect; 04 &mdash; Pro</h2>
       <span class="section-meta">$7.99 &mdash; One-time</span>
     </div>
     <div class="pro-grid">
@@ -915,7 +948,7 @@
 
   <section class="section privacy-note">
     <div class="section-bar">
-      <span class="section-label">&sect; 05 &mdash; Privacy</span>
+      <h2 class="section-label">&sect; 05 &mdash; Privacy</h2>
     </div>
     <p>
       Full Stop stores all data on-device. Nothing is sent to a server.
